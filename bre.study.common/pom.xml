@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.housing.ssfs.poc</groupId>
+		<artifactId>bre.study</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bre.study.common</artifactId>
+	<dependencies>
+		<!-- temporary solution for maven not accessing the internet -->
+		<!-- <dependency> <groupId>org.apache.commons</groupId> <artifactId>commons-lang</artifactId> 
+			<version>2.1</version> <scope>system</scope> <systemPath>${project.basedir}/local-lib/org.apache.commons-commons-lang-2.1.jar</systemPath> 
+			</dependency> -->
+		<!-- Replace org.apache.commons commons-lang with a newer version -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.10</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/local-lib/org.apache.commons-commons-lang3-3.10.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0.4</version>
+			<!-- <scope>compile</scope> -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/local-lib/org.apache.commons-commons-logging-1.0.4.jar</systemPath>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${version.compiler.plugin}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

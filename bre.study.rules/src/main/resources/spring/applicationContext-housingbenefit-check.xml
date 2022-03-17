@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="housingBenefitCheckRuleLibrary"
+		class="hk.gov.housingauthority.nhs.housingbenefit.check.library.HousingBenefitCheckRuleLibrary">
+		<property name="ruleMapByVersionMap">
+			<map>
+				<entry key="BNFT_CHECK_019"
+					value-ref="housingBenefitCheckRuleMap_019" />
+			</map>
+		</property>
+	</bean>
+	<!-- Rule Map Definition -->
+	<bean id="housingBenefitCheckRuleMap_019"
+		class="hk.gov.housingauthority.nhs.housingbenefit.check.library.HousingBenefitCheckRuleMap">
+		<property name="ruleMap">
+			<map>
+				<entry key="T" value-ref="typeTHousingBenefitCheckRuleListForType_019" />
+				<entry key="Y" value-ref="typeYHousingBenefitCheckRuleListForType_019" />
+			</map>
+		</property>
+	</bean>
+</beans>

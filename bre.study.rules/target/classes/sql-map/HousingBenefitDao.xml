@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="hk.gov.housingauthority.nhs.rules.dao.housingbenefit.HousingBenefitDao">
+	<resultMap id="housingBenefitMap"
+		type="hk.gov.housingauthority.nhs.rules.vo.housingbenefit.HousingBenefit">
+		<result property="duplicatedReportMasterKey"
+			column="dup_rpt_mstr_key" />
+		<result property="reportMasterReference"
+			column="dup_rpt_mstr_ref_key" />
+		<result property="masterListId" column="dup_rpt_mstr_list_id" />
+		<result property="benefitTypeCode" column="hse_bnft_type_code" />
+		<result property="benefitReferenceNumber"
+			column="hse_bnft_ref_num" />
+		<result property="benefitMemberIdTypeCode"
+			column="hse_bnft_mbr_id_type_code" />
+		<result property="benefitMemberIdNumber"
+			column="hse_bnft_mbr_id_num" />
+	</resultMap>
+	<select id="getHousingBenefitListByMasterReferenceKey"
+		resultMap="housingBenefitMap">
+		SELECT sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_key,
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_ref_key,
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_list_id,
+		sif_ems_dup_rpt_mstr_inbd.hse_bnft_type_code,
+		sif_ems_dup_rpt_mstr_inbd.hse_bnft_ref_num,
+		sif_ems_dup_rpt_mstr_inbd.hse_bnft_mbr_id_type_code,
+		sif_ems_dup_rpt_mstr_inbd.hse_bnft_mbr_id_num FROM
+		sif_ems_dup_rpt_mstr_inbd WHERE
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_key =
+		#{duplicatedReportMasterKey}
+		ORDER BY
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_ref_key,
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_list_id
+	</select>
+	<select id="selectRawFieldMapForHousingBenefit"
+		parameterType="map" resultType="map">
+		SELECT
+		sif_ems_dup_rpt_mstr_inbd.*
+		FROM
+		sif_ems_dup_rpt_mstr_inbd
+		WHERE
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_key =
+		#{duplicatedReportMasterKey}
+		AND
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_ref_key =
+		#{reportMasterReference}
+		AND
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_list_id = #{masterListId}
+	</select>
+	<select id="selectRawFieldMapForHousingBenefitMember"
+		parameterType="map" resultType="map">
+		SELECT
+		sif_ems_dup_rpt_dtl_inbd.*
+		FROM
+		sif_ems_dup_rpt_dtl_inbd
+		WHERE
+		sif_ems_dup_rpt_dtl_inbd.dup_rpt_mstr_key =
+		#{duplicatedReportMasterKey}
+		AND
+		sif_ems_dup_rpt_dtl_inbd.dup_rpt_mstr_ref_key =
+		#{reportMasterReference}
+		AND
+		sif_ems_dup_rpt_dtl_inbd.dup_rpt_mstr_list_id = #{masterListId}
+		AND
+		sif_ems_dup_rpt_dtl_inbd.dup_rpt_dtl_list_id LIKE 'MBR%'
+		ORDER BY
+		sif_ems_dup_rpt_dtl_inbd.dup_rpt_dtl_list_id
+	</select>
+	<select id="getDuplicatedReportMasterKeyByMemberId"
+		parameterType="map" resultType="string">
+		SELECT
+		sif_ems_dup_rpt_mstr_inbd.dup_rpt_mstr_key FROM
+		sif_ems_dup_rpt_mstr_inbd WHERE
+		sif_ems_dup_rpt_mstr_inbd.HSE_BNFT_MBR_ID_TYPE_CODE =
+		#{memberIdType}
+		AND
+		sif_ems_dup_rpt_mstr_inbd.HSE_BNFT_MBR_ID_NUM =
+		#{memberIdNumber}
+		LIMIT 1
+	</select>
+</mapper>

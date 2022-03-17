@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="housingBenefitDataDictionaryLibrary"
+		class="hk.gov.housingauthority.nhs.housingbenefit.datadict.library.HousingBenefitDataDictionaryLibrary">
+		<property name="dictionaryByVersionMap">
+			<map>
+				<entry key="BNFT_DICT_019"
+					value-ref="housingBenefitDataDictionary_019" />
+			</map>
+		</property>
+	</bean>
+	<!-- Dictionary Definition -->
+	<bean id="housingBenefitDataDictionary_019"
+		class="hk.gov.housingauthority.nhs.housingbenefit.datadict.HousingBenefitDataDictionary">
+		<property name="mapperMap">
+			<map>
+				<entry key="T" value-ref="typeTHousingBenefitMapper_019" />
+				<entry key="Y" value-ref="typeYHousingBenefitMapper_019" />
+			</map>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="eligibilityCheckRuleLibrary"
+		class="hk.gov.housingauthority.nhs.vettingcheck.library.EligibilityCheckRuleLibrary">
+		<property name="ruleListByVersionMap">
+			<map>
+				<!-- TODO: Please complete this spring configuration file by refering 
+					to Part 2.8 of the "Design" document and applicationContext-categorisation.xml -->
+				<entry key="EGBL_019">
+					<list>
+						<ref bean="principalAgeCheckRule" />
+						<ref bean="whiteFormFEPNuclearFamilyCheckRule" />
+						<ref bean="greenFormFEPFamilyCheckRule" />
+						<ref bean="fepFamilyAgeCheckRule" />
+						<ref bean="birthCertificateAndDOBCheckRule" />
+					</list>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!-- Define the beans for "EligibilityCheckRule" -->
+	<bean id="principalAgeCheckRule"
+		class="hk.gov.housingauthority.nhs.vettingcheck.rules.PrincipalAgeCheckRule">
+		<property name="ruleId" value="VET-EGBL-0001" />
+	</bean>
+	<bean id="whiteFormFEPNuclearFamilyCheckRule"
+		class="hk.gov.housingauthority.nhs.vettingcheck.rules.WhiteFormFEPNuclearFamilyCheckRule">
+		<property name="ruleId" value="VET-EGBL-0002" />
+	</bean>
+	<bean id="greenFormFEPFamilyCheckRule"
+		class="hk.gov.housingauthority.nhs.vettingcheck.rules.GreenFormFEPFamilyCheckRule">
+		<property name="ruleId" value="VET-EGBL-0003" />
+	</bean>
+	<bean id="fepFamilyAgeCheckRule"
+		class="hk.gov.housingauthority.nhs.vettingcheck.rules.FEPFamilyAgeCheckRule">
+		<property name="ruleId" value="VET-EGBL-0004" />
+	</bean>
+	<bean id="birthCertificateAndDOBCheckRule"
+		class="hk.gov.housingauthority.nhs.vettingcheck.rules.BirthCertificateAndDOBCheckRule">
+		<property name="ruleId" value="VET-EGBL-0005" />
+	</bean>
+
+</beans>

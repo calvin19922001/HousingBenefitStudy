@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="categorisationRuleLibrary"
+		class="hk.gov.housingauthority.nhs.categorisation.library.CategorisationRuleLibrary">
+		<property name="ruleListByVersionMap">
+			<map>
+				<entry key="CATG_019">
+					<list>
+						<ref bean="categorisationRule_019_GE" />
+
+						<ref bean="categorisationRule_019_G" />
+						<ref bean="categorisationRule_019_G1P" />
+						<ref bean="categorisationRule_019_WNE" />
+						<ref bean="categorisationRule_019_WOE" />
+						<ref bean="categorisationRule_019_W" />
+						<ref bean="categorisationRule_019_W1P" />
+
+					</list>
+				</entry>
+
+				<entry key="CATG_WF19">
+					<list>
+						<ref bean="categorisationRule_WF19_F" />
+						<ref bean="categorisationRule_WF19_S" />
+					</list>
+				</entry>
+
+			</map>
+		</property>
+	</bean>
+	<!-- Criteria Definition -->
+	<bean id="greenFormCriteria"
+		class="hk.gov.housingauthority.nhs.categorisation.criteria.FormColourCriteria">
+		<property name="formColour" value="G" />
+	</bean>
+	<bean id="whiteFormCriteria"
+		class="hk.gov.housingauthority.nhs.categorisation.criteria.FormColourCriteria">
+		<property name="formColour" value="W" />
+	</bean>
+	<bean id="familyCriteria"
+		class="hk.gov.housingauthority.nhs.categorisation.criteria.FamilyTypeCriteria">
+		<property name="familyTypeList">
+			<list>
+				<value>F</value>
+				<value>N</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="nuclearFamilyCriteria"
+		class="hk.gov.housingauthority.nhs.categorisation.criteria.FamilyTypeCriteria">
+		<property name="familyTypeList">
+			<list>
+				<value>N</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="nonNuclearFamilyCriteria"
+		class="hk.gov.housingauthority.nhs.categorisation.criteria.FamilyTypeCriteria">
+		<property name="familyTypeList">
+			<list>
+				<value>F</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="singletonCriteria"
+		class="hk.gov.housingauthority.nhs.categorisation.criteria.FamilyTypeCriteria">
+		<property name="familyTypeList">
+			<list>
+				<value>S</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="fepCriteria"
+		class="hk.gov.housingauthority.nhs.categorisation.criteria.JoinFepCriteria" />
+	<!-- Categorisation Rule Definition -->
+	<bean id="categorisationRule_019_GE"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="greenFormCriteria" />
+				<ref bean="familyCriteria" />
+				<ref bean="fepCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="GE" />
+	</bean>
+	<bean id="categorisationRule_019_G"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="greenFormCriteria" />
+				<ref bean="familyCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="G" />
+	</bean>
+	<bean id="categorisationRule_019_G1P"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="greenFormCriteria" />
+				<ref bean="singletonCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="G-1P" />
+	</bean>
+	<bean id="categorisationRule_019_WNE"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="whiteFormCriteria" />
+				<ref bean="familyCriteria" />
+				<ref bean="fepCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="WNE" />
+	</bean>
+	<bean id="categorisationRule_019_WOE"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="whiteFormCriteria" />
+				<ref bean="nuclearFamilyCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="WOE" />
+	</bean>
+	<bean id="categorisationRule_019_W"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="whiteFormCriteria" />
+				<ref bean="nonNuclearFamilyCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="W" />
+	</bean>
+	<bean id="categorisationRule_019_W1P"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="whiteFormCriteria" />
+				<ref bean="singletonCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="W-1P" />
+	</bean>
+	<bean id="categorisationRule_WF19_F"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="familyCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="F" />
+	</bean>
+	<bean id="categorisationRule_WF19_S"
+		class="hk.gov.housingauthority.nhs.categorisation.rules.CategorisationRule">
+		<property name="criteriaList">
+			<list>
+				<ref bean="singletonCriteria" />
+			</list>
+		</property>
+		<property name="categoryCode" value="S" />
+	</bean>
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Housing Benefit Mapper Definition -->
+	<bean id="typeTHousingBenefitCheckRuleListForType_019"
+		class="hk.gov.housingauthority.nhs.housingbenefit.check.library.HousingBenefitCheckRuleListForType">
+		<property name="housingBenefitCheckRuleList">
+			<list>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeT.TenancyAbuserNotBlankCheckRule">
+					<property name="ruleId" value="VET-BNFT-T-0001" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeT.HouseholdScoreCheckRule">
+					<property name="ruleId" value="VET-BNFT-T-0002" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeT.NTQExpiryDateCheckRule">
+					<property name="ruleId" value="VET-BNFT-T-0003" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeT.HouseholdDebarNotBlankCheckRule">
+					<property name="ruleId" value="VET-BNFT-T-0004" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeT.HouseholdMatchCheckRule">
+					<property name="ruleId" value="VET-BNFT-T-0005" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeT.MembersMaritalStatusCheckRule">
+					<property name="ruleId" value="VET-BNFT-T-0006" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>

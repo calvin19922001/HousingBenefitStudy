@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="typeYHousingBenefitMapper_019"
+		class="hk.gov.housingauthority.nhs.housingbenefit.datadict.HousingBenefitMapper">
+		<property name="mappingModeList">
+			<list>
+				<value>VETTING</value>
+				<value>ASP</value>
+			</list>
+		</property>
+		<property name="mapperListForBenefit">
+			<list>
+				<!-- TODO: Add field mappers -->
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="codeAddress" />
+					<property name="displayName" value="Code Address" />
+					<property name="dbFieldName" value="dup_item_text_1" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="false" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="dateOfAssignment" />
+					<property name="displayName" value="Date of Assignment" />
+					<property name="dbFieldName" value="dup_item_date_1" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="exOwnerCode" />
+					<property name="displayName" value="Ex-Owner Code" />
+					<property name="dbFieldName" value="dup_item_code_1" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="originallyPurchaseFrom" />
+					<property name="displayName" value="Originally Purchase from" />
+					<property name="dbFieldName" value="dup_item_code_2" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="false" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="dateOfTermination" />
+					<property name="displayName" value="Date of Termination" />
+					<property name="dbFieldName" value="dup_item_date_2" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+			</list>
+		</property>
+		<property name="mapperListForMember">
+			<list>
+				<!-- TODO: Add field mappers -->
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="englishName" />
+					<property name="displayName" value="Name" />
+					<property name="dbFieldName" value="dup_item_text_2" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="chineseName" />
+					<property name="displayName" value="Chinese Name" />
+					<property name="dbFieldName" value="dup_item_text_3" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="idTypeCode" />
+					<property name="displayName" value="ID Type Code (not for display)" />
+					<property name="dbFieldName" value="dup_item_text_14" />
+					<property name="forDisplay" value="false" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="idNumber" />
+					<property name="displayName" value="ID Number (not for display)" />
+					<property name="dbFieldName" value="dup_item_text_15" />
+					<property name="forDisplay" value="false" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="sex" />
+					<property name="displayName" value="Sex" />
+					<property name="dbFieldName" value="dup_item_text_5" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="dateOfBirth" />
+					<property name="displayName" value="Date of Birth (not for display)" />
+					<property name="dbFieldName" value="dup_item_date_1" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="false" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="ownerInd" />
+					<property name="displayName" value="Relationship" />
+					<property name="dbFieldName" value="dup_item_text_25" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="relationship" />
+					<property name="displayName" value="Marital Status" />
+					<property name="dbFieldName" value="dup_item_text_8" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="31" />
+					<property name="displayName" value="Elderly Indicator" />
+					<property name="dbFieldName" value="dup_item_text_26" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.datadict.FieldMapper">
+					<property name="fieldKey" value="16" />
+					<property name="displayName" value="RR Indicator" />
+					<property name="dbFieldName" value="dup_item_text_11" />
+					<property name="forDisplay" value="true" />
+					<property name="forDiscrepancyCheck" value="true" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>

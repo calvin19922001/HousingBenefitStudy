@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Housing Benefit Mapper Definition -->
+	<bean id="typeYHousingBenefitCheckRuleListForType_019"
+		class="hk.gov.housingauthority.nhs.housingbenefit.check.library.HousingBenefitCheckRuleListForType">
+		<property name="housingBenefitCheckRuleList">
+			<list>
+				<!-- TODO: Place beans of HousingBenefitCheckRuleRule here -->
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeY.GreenFormTPSOwnerCheckRule">
+					<property name="ruleId" value="VET-BNFT-Y-0001" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeY.GreenFormSpouseOfTPSOwnerCheckRule">
+					<property name="ruleId" value="VET-BNFT-Y-0002" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeY.WhiteFormTPSOwnerCheckRule">
+					<property name="ruleId" value="VET-BNFT-Y-0003" />
+				</bean>
+				<bean
+					class="hk.gov.housingauthority.nhs.housingbenefit.check.rules.BenefitCheckRulesForTypeY.WhiteFormSpouseOfTPSOwnerCheckRule">
+					<property name="ruleId" value="VET-BNFT-Y-0004" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>
